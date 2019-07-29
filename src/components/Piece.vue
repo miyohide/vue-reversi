@@ -22,3 +22,19 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.piece {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 #555;
+  margin: auto;
+}
+.white {
+  background: #fff;
+}
+.black {
+  background: #000;
+}
+</style>
