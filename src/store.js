@@ -4,18 +4,18 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const INITIAL_BOARD = [
-  0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 1, 2, 0, 0, 0,
-  0, 0, 0, 2, 1, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0,
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+  'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+  'E', 'E', 'E', 'W', 'B', 'E', 'E', 'E',
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
 ];
 
-export const BLACK = 1;
-export const WHITE = 2;
+export const BLACK = 'B';
+export const WHITE = 'W';
 
 export const state = {
   board: INITIAL_BOARD,

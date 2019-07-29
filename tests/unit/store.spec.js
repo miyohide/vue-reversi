@@ -4,14 +4,14 @@ describe('store', () => {
     describe('state', () => {
         it('should contain board with initial data', () => {
             const expected = [
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 1, 2, 0, 0, 0,
-                0, 0, 0, 2, 1, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                'E', 'E', 'E', 'W', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
             ];
             expect(state.board).toEqual(expected);
         });
