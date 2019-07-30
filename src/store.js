@@ -26,8 +26,25 @@ export const mutations = {};
 
 export const actions = {};
 
-export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-});
+export const createStore = (options = {
+  actions: {},
+  mutations: {},
+  state: {},
+}) => (
+  new Vuex.Store({
+    // TODO ...の意味を調べる。
+    // スプレッド構文というやつらしい。 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    state: {
+      ...state,
+      ...options.state,
+    },
+    mutations: {
+      ...mutations,
+      ...options.mutations,
+    },
+    actions: {
+      ...actions,
+      ...options.actions,
+    },
+  })
+);
