@@ -16,11 +16,15 @@ const INITIAL_BOARD = [
 
 export const BLACK = 'B';
 export const WHITE = 'W';
+export const WIDTH = 8;
+export const HEIGHT = 8;
 
 export const state = {
   board: INITIAL_BOARD,
   currentPlayer: BLACK,
 };
+
+export const coordinates = index => [index % WIDTH, Math.floor(index / WIDTH)];
 
 export const mutations = {};
 
