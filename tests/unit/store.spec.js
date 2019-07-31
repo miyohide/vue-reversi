@@ -1,4 +1,6 @@
-import { state, BLACK } from '@/store';
+import { state,
+    coordinates,
+    BLACK } from '@/store';
 
 describe('store', () => {
     describe('state', () => {
