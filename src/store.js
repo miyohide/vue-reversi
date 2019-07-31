@@ -26,6 +26,8 @@ export const state = {
 
 export const coordinates = index => [index % WIDTH, Math.floor(index / WIDTH)];
 
+export const cellIndex = (x, y) => x + y * WIDTH;
+
 export const mutations = {};
 
 export const actions = {};
