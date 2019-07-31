@@ -1,5 +1,6 @@
 import { state,
     coordinates,
+    cellIndex,
     BLACK } from '@/store';
 
 describe('store', () => {
