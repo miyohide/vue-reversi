@@ -2,6 +2,7 @@ import { state,
     coordinates,
     cellIndex,
     opponent,
+    playableCell,
     WHITE,
     BLACK } from '@/store';
 
@@ -52,5 +53,27 @@ describe('store', () => {
             });
         });
 
+        describe('playableCell', () => {
+            it('与えられた方向に対して石を置くことができる座標を返す', () => {
+                const board = [
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                    'E', 'E', 'W', 'W', 'B', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                    'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                ];
+                // 上記の盤で[1,4]の位置に東方向へ黒石が置けることを確認する
+                expect(playableCell(board, [1, 4], [1, 0], BLACK)).toBeTruthy();
+                // 上記の盤で[0,0]の位置に東方向へ黒石が置けることを確認する
+                expect(playableCell(board, [0, 0], [1, 0], BLACK)).toBeFalsy();
+                // 上記の盤で[5,3]の位置に西方向へ黒石が置けることを確認する
+                expect(playableCell(board, [5, 3], [-1, 0], BLACK)).toBeTruthy();
+                // 上記の盤で[5,4]の位置に西方向へ黒石が置けることを確認する
+                expect(playableCell(board, [5, 4], [-1, 0], BLACK)).toBeFalsy();
+            });
+        });
     });
 });

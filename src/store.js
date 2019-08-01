@@ -36,6 +36,34 @@ export const opponent = current => {
   }
 };
 
+/**
+ * 石を置くことができるか否かを判定する。
+ * @param {Array.<string>} board 現在の盤の状態
+ * @param {Array.<number>} param1 石を置く座標
+ * @param {Array.<number>} param2 石が行けるかチェックする方向
+ * @param {string} player 自分の手。定数BLACKもしくはWHITEを指定。
+ */
+export const playableCell = (board, [x, y], [xDir, yDir], player) => {
+  let currentX = x;
+  let currentY = y;
+  let hasOpponent = true;
+  let prevIsOpponent = false;
+  let currentCell;
+  // 石を置いたとき、指定した向きに対してひっくり返せる石が無くなるまでループする
+  while (currentX > 0 && currentX < WIDTH && currentY > 0 && currentY < HEIGHT && hasOpponent) {
+    currentX += xDir;
+    currentY += yDir;
+    currentCell = board[cellIndex(currentX, currentY)];
+    // ひっくり返せる石があるかどうかチェック
+    hasOpponent = currentCell === opponent(player);
+    if (hasOpponent) {
+      prevIsOpponent = hasOpponent;
+    }
+  }
+  // 直前までひっくり返せる石があり、チェック対象が自分の石と同じ色かどうかチェック
+  return prevIsOpponent && currentCell === player;
+};
+
 export const mutations = {};
 
 export const actions = {};
