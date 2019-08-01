@@ -1,6 +1,8 @@
 import { state,
     coordinates,
     cellIndex,
+    opponent,
+    WHITE,
     BLACK } from '@/store';
 
 describe('store', () => {
@@ -40,5 +42,15 @@ describe('store', () => {
                 expect(cellIndex(7, 1)).toEqual(15);
             });
         });
+
+        describe('opponent', () => {
+            it('黒石の反対は白石であること', () => {
+                expect(opponent(BLACK)).toEqual(WHITE);
+            });
+            it('白石の反対は黒石であること', () => {
+                expect(opponent(WHITE)).toEqual(BLACK);
+            });
+        });
+
     });
 });
