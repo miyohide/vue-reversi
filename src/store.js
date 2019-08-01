@@ -28,6 +28,14 @@ export const coordinates = index => [index % WIDTH, Math.floor(index / WIDTH)];
 
 export const cellIndex = (x, y) => x + y * WIDTH;
 
+export const opponent = current => {
+  if (current === WHITE) {
+    return BLACK;
+  } else {
+    return WHITE;
+  }
+};
+
 export const mutations = {};
 
 export const actions = {};
