@@ -14,10 +14,22 @@ const INITIAL_BOARD = [
   'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
 ];
 
+export const BLANK = 'E';
 export const BLACK = 'B';
 export const WHITE = 'W';
 export const WIDTH = 8;
 export const HEIGHT = 8;
+const DIRECTIONS = [
+  [-1, -1],
+  [0, -1],
+  [1, -1],
+  [-1, 0],
+  [1, 0],
+  [-1, 1],
+  [0, 1],
+  [1, 1],
+];
+const DIRECTIONS_COUNT = DIRECTIONS.length;
 
 export const state = {
   board: INITIAL_BOARD,
@@ -62,6 +74,30 @@ export const playableCell = (board, [x, y], [xDir, yDir], player) => {
   }
   // 直前までひっくり返せる石があり、チェック対象が自分の石と同じ色かどうかチェック
   return prevIsOpponent && currentCell === player;
+};
+
+export const getters = {
+  playableCells(state) {
+    const { board, currentPlayer } = state;
+    const cells = [];
+    board.forEach((value, index) => {
+      if (value === BLANK) {
+        const coord = coordinates(index);
+
+        let i = 0;
+        let isPlayable = false;
+        while (!isPlayable && i < DIRECTIONS_COUNT) {
+          const direction = DIRECTIONS[i];
+          i += 1;
+          isPlayable = playableCell(board, coord, direction, currentPlayer);
+        }
+        if (isPlayable) {
+          cells.push(cellIndex(coord[0], coord[1]));
+        }
+      }
+    });
+    return cells;
+  },
 };
 
 export const mutations = {};
