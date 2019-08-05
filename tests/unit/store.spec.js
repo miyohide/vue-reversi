@@ -3,6 +3,7 @@ import { state,
     cellIndex,
     opponent,
     playableCell,
+    getters,
     WHITE,
     BLACK } from '@/store';
 
@@ -74,6 +75,13 @@ describe('store', () => {
                 // 上記の盤で[5,4]の位置に西方向へ黒石が置けることを確認する
                 expect(playableCell(board, [5, 4], [-1, 0], BLACK)).toBeFalsy();
             });
+        });
+    });
+
+    describe('getters', () => {
+        it('黒石が置くことができるセルのリストが返ること', () => {
+            const result = getters.playableCells(state);
+            expect(result).toEqual([20, 29, 34, 43]);
         });
     });
 });
