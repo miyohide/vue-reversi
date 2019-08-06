@@ -107,6 +107,7 @@ export const actions = {};
 export const createStore = (options = {
   actions: {},
   mutations: {},
+  getters: {},
   state: {},
 }) => (
   new Vuex.Store({
@@ -123,6 +124,10 @@ export const createStore = (options = {
     actions: {
       ...actions,
       ...options.actions,
+    },
+    getters: {
+      ...getters,
+      ...options.getters,
     },
   })
 );
