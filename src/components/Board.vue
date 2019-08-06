@@ -51,7 +51,7 @@ export default {
   max-width: 700px;
   max-height: 700px;
 }
- .board {
+.board {
   display: grid;
   grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
   grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
