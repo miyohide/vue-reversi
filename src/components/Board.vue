@@ -3,6 +3,7 @@
         <div
             v-for="cell in cells"
             class="cell"
+            :class="{ playable: cell.isPlayable }"
             :key="cell.key">
             <piece
                 v-if="cell.value !== 'E'"
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import Piece from '@/components/Piece.vue';
 
 export default {
@@ -23,8 +24,16 @@ export default {
         ...mapState([
             'board',
         ]),
+        ...mapGetters([
+            'playableCells',
+        ]),
         cells() {
-            return this.board.map((cell, index) => ({ key: `cell-${index}`, value: cell }));
+            const { playableCells } = this;
+            return this.board.map((cell, index) => ({
+                key: `cell-${index}`,
+                value: cell,
+                isPlayable: playableCells.indexOf(index) > -1,
+            }));
         },
     },
 };
