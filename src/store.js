@@ -1,18 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {
+  INITIAL_BOARD
+ } from '@/store/commons';
 
 Vue.use(Vuex)
-
-const INITIAL_BOARD = [
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-  'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
-  'E', 'E', 'E', 'W', 'B', 'E', 'E', 'E',
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-  'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-];
 
 export const BLANK = 'E';
 export const BLACK = 'B';
