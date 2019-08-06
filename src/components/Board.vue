@@ -65,4 +65,8 @@ export default {
   box-shadow: inset 1px 1px 0 #94C160, inset -1px -1px 0 #477413;
   display: flex;
 }
+.playable {
+  background: #C4E79A;
+  cursor: pointer;
+}
 </style>
