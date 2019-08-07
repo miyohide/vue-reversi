@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {
-  INITIAL_BOARD
+  INITIAL_BOARD,
+  BLACK,
+  WHITE,
+  BLANK,
+  WIDTH,
+  HEIGHT,
  } from '@/store/commons';
 
 Vue.use(Vuex)
 
-export const BLANK = 'E';
-export const BLACK = 'B';
-export const WHITE = 'W';
-export const WIDTH = 8;
-export const HEIGHT = 8;
 const DIRECTIONS = [
   [-1, -1],
   [0, -1],
