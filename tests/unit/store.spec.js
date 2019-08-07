@@ -3,9 +3,8 @@ import { state,
     cellIndex,
     opponent,
     playableCell,
-    getters,
-    WHITE,
-    BLACK } from '@/store';
+    getters } from '@/store';
+import { BLACK, WHITE } from '@/store/commons';
 
 describe('store', () => {
     describe('state', () => {
