@@ -7,21 +7,11 @@ import {
   BLANK,
   WIDTH,
   HEIGHT,
+  DIRECTIONS,
+  DIRECTIONS_COUNT,
  } from '@/store/commons';
 
 Vue.use(Vuex)
-
-const DIRECTIONS = [
-  [-1, -1],
-  [0, -1],
-  [1, -1],
-  [-1, 0],
-  [1, 0],
-  [-1, 1],
-  [0, 1],
-  [1, 1],
-];
-const DIRECTIONS_COUNT = DIRECTIONS.length;
 
 export const state = {
   board: INITIAL_BOARD,
