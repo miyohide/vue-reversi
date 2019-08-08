@@ -3,17 +3,11 @@ import Vuex from 'vuex'
 import {
   INITIAL_BOARD,
   BLACK,
-  BLANK,
-  DIRECTIONS,
-  DIRECTIONS_COUNT,
-  coordinates,
-  playableCell,
-  cellIndex,
- } from '@/store/commons';
+} from '@/store/commons';
 
- import actions from '@/store/actions';
- import getters from '@/store/getters';
- import mutations from '@/store/mutations';
+import actions from '@/store/actions';
+import getters from '@/store/getters';
+import mutations from '@/store/mutations';
 
 Vue.use(Vuex)
 
