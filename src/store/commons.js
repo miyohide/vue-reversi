@@ -1,3 +1,5 @@
+import { dirname } from "upath";
+
 export const INITIAL_BOARD = [
     'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
     'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
@@ -66,3 +68,29 @@ export const playableCell = (board, [x, y], [xDir, yDir], player) => {
   // 直前までひっくり返せる石があり、チェック対象が自分の石と同じ色かどうかチェック
   return prevIsOpponent && currentCell === player;
 };
+
+export const reversibleCellsByDirection = (board, [x, y], [xDir, yDir], player) => {
+  let currentX = x + xDir;
+  let currentY = y + yDir;
+  let result = [];
+  let playerFound = false;
+  let blankFound = false;
+  let currentCell;
+  while (currentX > 0 && currentX < WIDTH && currentY > 0 && currentY < HEIGHT && !playerFound && !blankFound) {
+    currentCell = board[cellIndex(currentX, currentY)];
+    playerFound = currentCell === player;
+    blankFound = currentCell === BLANK;
+    // 自分の石でなく石が置かれている場合ひっくり返せる
+    if (!playerFound && !blankFound) {
+      result.push([currentX, currentY]);
+    }
+    currentX += xDir;
+    currentY += yDir;
+  }
+  // 途中で石が置かれていないところがある場合、挟み込めていないので何もひっくり返せない
+  // 途中でひっくり返せると判断しても全部キャンセル。
+  if (blankFound) {
+    result = [];
+  }
+  return result;
+}

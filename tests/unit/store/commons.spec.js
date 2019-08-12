@@ -3,6 +3,7 @@ import {
     cellIndex,
     opponent,
     playableCell,
+    reversibleCellsByDirection,
     BLACK,
     WHITE,
 } from '@/store/commons';
@@ -53,6 +54,24 @@ describe('store::commons', () => {
             expect(playableCell(board, [5, 3], [-1, 0], BLACK)).toBeTruthy();
             // 上記の盤で[5,4]の位置に西方向へ黒石が置けることを確認する
             expect(playableCell(board, [5, 4], [-1, 0], BLACK)).toBeFalsy();
+        });
+    });
+
+    describe('reversibleCellsByDirection', () => {
+        const board = [
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+            'E', 'E', 'W', 'W', 'B', 'E', 'E', 'E',
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        ];
+        it('与えられた状況においてひっくり返る座標のリストが返ること', () => {
+            expect(reversibleCellsByDirection(board, [1, 4], [1, 0], BLACK)).toEqual(
+                [[2, 4], [3, 4],]
+            );
         });
     });
 });
