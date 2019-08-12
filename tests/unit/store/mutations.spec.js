@@ -31,5 +31,12 @@ describe('store::mutations', () => {
             store.commit('changePiece', { position: 20, color: BLACK});
             expect(store.state.board[20]).toEqual(BLACK);
         });
+
+        it('渡した場所と色で石が変わること', () => {
+            // [4, 3]の場所を黒石に変更（もともと白の場所）
+            store.commit('changePiece', { position: 28, color: BLACK});
+            // TODO なんで[4, 2]の場所が変わるんだろう...
+            expect(store.state.board[20]).toEqual(BLACK);
+        });
     });
 });
