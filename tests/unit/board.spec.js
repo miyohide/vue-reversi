@@ -6,9 +6,15 @@ import Piece from '@/components/Piece.vue';
 describe('Board.vue', () => {
     let store;
     let wrapper;
+    let playAction;
 
     beforeEach(() => {
-        store = createStore();
+        playAction = jest.fn();
+        store = createStore({
+            actions: {
+                play: playAction,
+            },
+        });
         wrapper = mount(Board, {
             store,
         });
@@ -26,5 +32,11 @@ describe('Board.vue', () => {
 
     it('石を置くことができる場所が4つあること', () => {
         expect(wrapper.findAll('.playable').length).toEqual(4);
+    });
+
+    it('playableなセルをクリックしたときplayActionが呼び出されること', () => {
+        const playableCell = wrapper.find('.playable');
+        playableCell.trigger('click');
+        expect(playAction).toBeCalled();
     });
 });
