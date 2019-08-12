@@ -1,5 +1,3 @@
-import { dirname } from "upath";
-
 export const INITIAL_BOARD = [
     'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
     'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
