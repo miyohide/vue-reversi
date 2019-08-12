@@ -24,4 +24,12 @@ describe('store::mutations', () => {
             expect(store.state.currentPlayer).toEqual(BLACK);
         });
     });
+
+    describe('changePiece', () => {
+        it('渡した場所と色で石が変わること', () => {
+            // [4, 2]の場所に黒石を置く（もともと空いている場所）
+            store.commit('changePiece', { position: 20, color: BLACK});
+            expect(store.state.board[20]).toEqual(BLACK);
+        });
+    });
 });
