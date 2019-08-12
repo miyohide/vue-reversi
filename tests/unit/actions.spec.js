@@ -13,5 +13,10 @@ describe('store::actions', () => {
             store.dispatch('play', 20);
             expect(store.state.currentPlayer).toEqual(WHITE);
         });
+
+        it('現在の手番プレイヤーの石の色が置かれること', () => {
+            store.dispatch('play', 20);
+            expect(store.state.board[20]).toEqual(BLACK);
+        });
     });
 });
