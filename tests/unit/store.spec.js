@@ -22,11 +22,4 @@ describe('store', () => {
             expect(state.currentPlayer).toEqual(BLACK);
         });
     });
-
-    describe('getters', () => {
-        it('黒石が置くことができるセルのリストが返ること', () => {
-            const result = getters.playableCells(state);
-            expect(result).toEqual([20, 29, 34, 43]);
-        });
-    });
 });
