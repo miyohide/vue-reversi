@@ -18,5 +18,19 @@ describe('store::actions', () => {
             store.dispatch('play', 20);
             expect(store.state.board[20]).toEqual(BLACK);
         });
+
+        it('石を置いたら間に挟まれている石の色が変わること', () => {
+            store.dispatch('play', 20);
+            expect(store.state.board).toEqual([
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'W', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',            
+            ]);
+        });
     });
 });
