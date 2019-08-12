@@ -39,4 +39,11 @@ describe('Board.vue', () => {
         playableCell.trigger('click');
         expect(playAction).toBeCalled();
     });
+
+    it('playableでないセルをクリックしたときplayActionが呼び出されないこと', () => {
+        const notPlayableCell = wrapper.find('.cell');
+        expect(notPlayableCell.classes()).not.toContain('.playable');
+        notPlayableCell.trigger('click');
+        expect(playAction).not.toBeCalled();
+    });
 });
