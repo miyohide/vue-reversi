@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { BLACK } from '@/store/commons';
+import { BLACK, WHITE } from '@/store/commons';
 
 export default {
     computed: {
@@ -26,6 +26,9 @@ export default {
         ]),
         isBlackPlayerTurn() {
             return this.$store.state.currentPlayer === BLACK;
+        },
+        isWhitePlayerTurn() {
+            return this.$store.state.currentPlayer === WHITE;
         },
     },
 };
