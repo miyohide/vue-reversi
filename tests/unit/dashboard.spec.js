@@ -18,4 +18,10 @@ describe('components::Dashboard', () => {
             expect(wrapper.findAll('.score').length).toEqual(1);
         });
     });
+
+    describe('isBlackPlayerTurn', () => {
+        it('現在のプレイヤーがBLACKのときはtrueが返ること', () => {
+            expect(wrapper.vm.isBlackPlayerTurn).toBeTruthy();
+        });
+    });
 });
