@@ -1,4 +1,5 @@
 import { createStore } from '@/store';
+import { WHITE } from '@/store/commons';
 
 describe('store::getters', () => {
     let store;
@@ -55,6 +56,8 @@ describe('store::getters', () => {
             it('白の点数を返すこと', () => {
                 store.state.board = board;
                 expect(store.getters.whitePlayerScore).toEqual(4);
+                store.commit('changePiece', { position: 0, color: WHITE });
+                expect(store.getters.whitePlayerScore).toEqual(5);
             });
         });
     });
