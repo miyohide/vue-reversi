@@ -1,4 +1,5 @@
 import {
+    BLACK,
     BLANK,
     DIRECTIONS,
     DIRECTIONS_COUNT,
@@ -15,7 +16,7 @@ export default {
       board.forEach((value, index) => {
         if (value === BLANK) {
           const coord = coordinates(index);
-  
+
           let i = 0;
           let isPlayable = false;
           while (!isPlayable && i < DIRECTIONS_COUNT) {
@@ -42,5 +43,7 @@ export default {
         .map(([x, y]) => cellIndex(x, y))
         .concat([position]);
     },
+    blackPlayerScore(state) {
+      return state.board.filter(cell => cell === BLACK).length;
+    }
 };
-  
