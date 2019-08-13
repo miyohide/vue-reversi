@@ -34,4 +34,15 @@ describe('components::Dashboard', () => {
             expect(wrapper.vm.isWhitePlayerTurn).toBeTruthy();
         });
     });
+
+    describe('highlight', () => {
+        it('現在のプレイヤーがハイライトされること', () => {
+            const h3 = wrapper.findAll('h3');
+            expect(h3.at(0).classes()).toContain('currentPlayer');
+            expect(h3.at(1).classes()).not.toContain('currentPlayer');
+            store.commit('changePlayer');
+            expect(h3.at(0).classes()).not.toContain('currentPlayer');
+            expect(h3.at(1).classes()).toContain('currentPlayer');
+        })
+    })
 });
