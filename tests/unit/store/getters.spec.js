@@ -43,4 +43,12 @@ describe('store::getters', () => {
         });
     });
 
+    describe('score', () => {
+        describe('blackPlayerScore', () => {
+            it('黒の点数を返すこと', () => {
+                store.state.board = board;
+                expect(store.getters.blackPlayerScore).toEqual(4);
+            });
+        });
+    });
 });
