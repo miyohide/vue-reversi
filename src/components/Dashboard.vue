@@ -4,10 +4,16 @@
             <h2>Scores</h2>
             <div class="scores-container">
                 <div>
-                    Black: {{blackPlayerScore}}
+                    <h3 :class="{ currentPlayer: isBlackPlayerTurn }">
+                        Black
+                    </h3>
+                    <div class="score-value">{{blackPlayerScore}}</div>
                 </div>
                 <div>
-                    White: {{whitePlayerScore}}
+                    <h3 :class="{ currentPlayer: isWhitePlayerTurn }">
+                        White
+                    </h3>
+                    <div class="score-value">{{whitePlayerScore}}</div>
                 </div>
             </div>
         </div>
