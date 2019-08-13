@@ -24,4 +24,10 @@ describe('components::Dashboard', () => {
             expect(wrapper.vm.isBlackPlayerTurn).toBeTruthy();
         });
     });
+
+    describe('isWhitePlayerTurn', () => {
+        it('現在のプレイヤーがWHITEのときはtrueが返ること', () => {
+            expect(wrapper.vm.isWhitePlayerTurn).toBeTruthy();
+        });
+    });
 });
