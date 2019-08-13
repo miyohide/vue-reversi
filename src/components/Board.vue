@@ -1,15 +1,17 @@
 <template>
     <div class="board-container">
-        <div
-            v-for="cell in cells"
-            class="cell"
-            :class="{ playable: cell.isPlayable }"
-            :key="cell.key"
-            @click="play(cell)"
-            >
-            <piece
-                v-if="cell.value !== 'E'"
-                :color="cell.value" />
+        <div class="board">
+            <div
+                v-for="cell in cells"
+                class="cell"
+                :class="{ playable: cell.isPlayable }"
+                :key="cell.key"
+                @click="play(cell)"
+                >
+                <piece
+                    v-if="cell.value !== 'E'"
+                    :color="cell.value" />
+            </div>
         </div>
     </div>
 </template>
