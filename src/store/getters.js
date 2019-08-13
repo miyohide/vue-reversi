@@ -1,5 +1,6 @@
 import {
     BLACK,
+    WHITE,
     BLANK,
     DIRECTIONS,
     DIRECTIONS_COUNT,
@@ -45,5 +46,8 @@ export default {
     },
     blackPlayerScore(state) {
       return state.board.filter(cell => cell === BLACK).length;
+    },
+    whitePlayerScore(state) {
+      return state.board.filter(cell => cell === WHITE).length;
     }
 };
