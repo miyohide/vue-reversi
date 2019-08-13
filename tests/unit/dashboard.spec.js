@@ -27,6 +27,8 @@ describe('components::Dashboard', () => {
 
     describe('isWhitePlayerTurn', () => {
         it('現在のプレイヤーがWHITEのときはtrueが返ること', () => {
+            expect(wrapper.vm.isWhitePlayerTurn).toBeFalsy();
+            store.commit('changePlayer');
             expect(wrapper.vm.isWhitePlayerTurn).toBeTruthy();
         });
     });
