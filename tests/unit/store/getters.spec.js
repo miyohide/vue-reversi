@@ -54,7 +54,7 @@ describe('store::getters', () => {
         describe('whitePlayerScore', () => {
             it('白の点数を返すこと', () => {
                 store.state.board = board;
-                expect(store.getters.whitePlayerScore).toEqual(5);
+                expect(store.getters.whitePlayerScore).toEqual(4);
             });
         });
     });
