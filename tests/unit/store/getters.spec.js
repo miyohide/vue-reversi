@@ -128,5 +128,20 @@ describe('store::getters', () => {
             store.state.board = boardWithBlackWin;
             expect(store.getters.winner).toEqual(BLACK);
         });
+
+        it('全面に石が置かれており白が勝っている場合はWHITEが返ること', () => {
+            const boardWithWhiteWin = [
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+            ];
+            store.state.board = boardWithWhiteWin;
+            expect(store.getters.winner).toEqual(WHITE);
+        });
     });
 });
