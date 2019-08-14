@@ -54,6 +54,8 @@ export default {
       let result = null;
       if (getters.whitePlayerScore === 0) {
         result = BLACK;
+      } else if (getters.blackPlayerScore === 0) {
+        result = WHITE;
       }
       return result;
     },
