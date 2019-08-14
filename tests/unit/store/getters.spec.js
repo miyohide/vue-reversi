@@ -78,4 +78,10 @@ describe('store::getters', () => {
             });
         });
     });
+
+    describe('winner', () => {
+        it('勝者がいない場合はnullが返ること', () => {
+            expect(store.getters.winner).toBeNull();
+        });
+    });
 });
