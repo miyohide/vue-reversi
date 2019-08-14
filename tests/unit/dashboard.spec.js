@@ -45,4 +45,21 @@ describe('components::Dashboard', () => {
             expect(h3.at(1).classes()).toContain('currentPlayer');
         });
     });
+
+    describe('winner', () => {
+        it('黒が勝者であることを描画すること', () => {
+            const boardWithBlackWin = [
+                'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+                'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+            ];
+            store.state.board = boardWithBlackWin;
+            expect(wrapper.find('.winner').text()).toEqual('Winner is Black');
+        });
+    });
 });
