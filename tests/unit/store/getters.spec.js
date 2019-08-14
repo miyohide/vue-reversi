@@ -56,6 +56,7 @@ describe('store::getters', () => {
 
         it('端でplayableCellsが返す値の確認', () => {
             store.state.board = board2;
+            // [1, 0], [4, 1], [3, 2]に石がおけることを確認する
             expect(store.getters.playableCells).toEqual([1, 12, 19]);
         });
     });
