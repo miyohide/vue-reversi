@@ -49,5 +49,8 @@ export default {
     },
     whitePlayerScore(state) {
       return state.board.filter(cell => cell === WHITE).length;
-    }
+    },
+    winner(state, getters) {
+      return null;
+    },
 };
