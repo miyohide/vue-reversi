@@ -56,6 +56,8 @@ export default {
         result = BLACK;
       } else if (getters.blackPlayerScore === 0) {
         result = WHITE;
+      } else if (state.board.filter(cell => cell === BLANK).length === 0) {
+        result = getters.whitePlayerScore > getters.blackPlayerScore ? WHITE : BLACK;
       }
       return result;
     },
