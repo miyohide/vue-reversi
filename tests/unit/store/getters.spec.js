@@ -1,5 +1,5 @@
 import { createStore } from '@/store';
-import { WHITE } from '@/store/commons';
+import { WHITE, BLACK } from '@/store/commons';
 
 describe('store::getters', () => {
     let store;
@@ -82,6 +82,21 @@ describe('store::getters', () => {
     describe('winner', () => {
         it('勝者がいない場合はnullが返ること', () => {
             expect(store.getters.winner).toBeNull();
+        });
+
+        it('黒石しか置かれていない場合はBLACKが返ること', () => {
+            const boardWithBlackWin = [
+                'E', 'E', 'B', 'B', 'E', 'E', 'E', 'E',
+                'E', 'E', 'B', 'B', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            ];
+            store.state.board = boardWithBlackWin;
+            expect(store.getters.winner).toEqual(BLACK);
         });
     });
 });
