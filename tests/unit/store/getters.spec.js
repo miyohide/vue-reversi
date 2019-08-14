@@ -98,5 +98,20 @@ describe('store::getters', () => {
             store.state.board = boardWithBlackWin;
             expect(store.getters.winner).toEqual(BLACK);
         });
+
+        it('白石しか置かれていない場合はWHITEが返ること', () => {
+            const boardWithWhiteWin = [
+                'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E',
+                'E', 'E', 'W', 'W', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            ];
+            store.state.board = boardWithWhiteWin;
+            expect(store.getters.winner).toEqual(WHITE);
+        });
     });
 });
