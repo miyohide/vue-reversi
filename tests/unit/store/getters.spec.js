@@ -14,6 +14,17 @@ describe('store::getters', () => {
         'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
     ];
 
+    const board2 = [
+        'E', 'E', 'W', 'B', 'E', 'E', 'E', 'E',
+        'E', 'E', 'B', 'W', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+        'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+    ];
+
     beforeEach(() => {
         store = createStore();
     });
@@ -41,6 +52,11 @@ describe('store::getters', () => {
             result.sort();
             // [4, 6]と[5, 7]が黒石になる
             expect(result).toEqual([52, 61]);
+        });
+
+        it('端でplayableCellsが返す値の確認', () => {
+            store.state.board = board2;
+            expect(store.getters.playableCells).toEqual([1, 12, 19]);
         });
     });
 
