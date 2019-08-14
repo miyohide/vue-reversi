@@ -53,7 +53,7 @@ export const playableCell = (board, [x, y], [xDir, yDir], player) => {
   let prevIsOpponent = false;
   let currentCell;
   // 石を置いたとき、指定した向きに対してひっくり返せる石が無くなるまでループする
-  while (currentX > 0 && currentX < WIDTH && currentY > 0 && currentY < HEIGHT && hasOpponent) {
+  while (currentX >= 0 && currentX < WIDTH && currentY >= 0 && currentY < HEIGHT && hasOpponent) {
     currentX += xDir;
     currentY += yDir;
     currentCell = board[cellIndex(currentX, currentY)];
