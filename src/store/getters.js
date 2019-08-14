@@ -51,6 +51,10 @@ export default {
       return state.board.filter(cell => cell === WHITE).length;
     },
     winner(state, getters) {
-      return null;
+      let result = null;
+      if (getters.whitePlayerScore === 0) {
+        result = BLACK;
+      }
+      return result;
     },
 };
