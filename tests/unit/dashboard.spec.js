@@ -43,6 +43,6 @@ describe('components::Dashboard', () => {
             store.commit('changePlayer');
             expect(h3.at(0).classes()).not.toContain('currentPlayer');
             expect(h3.at(1).classes()).toContain('currentPlayer');
-        })
-    })
+        });
+    });
 });
