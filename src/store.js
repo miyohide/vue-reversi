@@ -12,7 +12,8 @@ import mutations from '@/store/mutations';
 Vue.use(Vuex)
 
 export const state = {
-  board: INITIAL_BOARD,
+  // slice(0)でシャローコピーをしないとINITIAL_BOARD自身が変更されてしまう
+  board: INITIAL_BOARD.slice(0),
   currentPlayer: BLACK,
 };
 
