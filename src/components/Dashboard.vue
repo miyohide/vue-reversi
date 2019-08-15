@@ -2,6 +2,9 @@
     <div class="dashboard">
         <div class="score">
             <h2>Scores</h2>
+            <div v-if="winner" class="winner">
+                {{ winnerContent }}
+            </div>
             <div class="scores-container">
                 <div>
                     <h3 :class="{ currentPlayer: isBlackPlayerTurn }">
@@ -29,12 +32,20 @@ export default {
         ...mapGetters([
             'blackPlayerScore',
             'whitePlayerScore',
+            'winner',
         ]),
         isBlackPlayerTurn() {
             return this.$store.state.currentPlayer === BLACK;
         },
         isWhitePlayerTurn() {
             return this.$store.state.currentPlayer === WHITE;
+        },
+        winnerContent() {
+            if (this.winner === BLACK) {
+                return 'Winner is Black';
+            } else {
+                return 'Winner is White';
+            }
         },
     },
 };
