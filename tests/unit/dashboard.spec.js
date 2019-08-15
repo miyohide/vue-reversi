@@ -6,12 +6,18 @@ describe('components::Dashboard', () => {
     let wrapper;
     let store;
     let restartMock;
+    let playableCellsMock;
 
     beforeEach(() => {
         restartMock = jest.fn();
+        playableCellsMock = jest.fn();
+        playableCellsMock.mockReturnValue([]);
         store = createStore({
             mutations: {
                 restart: restartMock,
+            },
+            getters: {
+                playableCells: playableCellsMock,
             },
         });
         wrapper = mount(Dashboard, {

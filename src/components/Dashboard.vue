@@ -6,6 +6,9 @@
                 {{ winnerContent }}
             </div>
             <button @click="restart" class="restart">Restart</button>
+            <div v-if="hasNotPlayableCells">
+                <button class="pass">Pass turn</button>
+            </div>
             <div class="scores-container">
                 <div>
                     <h3 :class="{ currentPlayer: isBlackPlayerTurn }">
@@ -34,6 +37,7 @@ export default {
             'blackPlayerScore',
             'whitePlayerScore',
             'winner',
+            'playableCells',
         ]),
         isBlackPlayerTurn() {
             return this.$store.state.currentPlayer === BLACK;
@@ -47,6 +51,9 @@ export default {
             } else {
                 return 'Winner is White';
             }
+        },
+        hasNotPlayableCells() {
+            return this.playableCells.length === 0;
         },
     },
     methods: {
