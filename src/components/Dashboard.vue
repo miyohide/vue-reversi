@@ -5,6 +5,7 @@
             <div v-if="winner" class="winner">
                 {{ winnerContent }}
             </div>
+            <button @click="restart" class="restart">Restart</button>
             <div class="scores-container">
                 <div>
                     <h3 :class="{ currentPlayer: isBlackPlayerTurn }">
@@ -46,6 +47,11 @@ export default {
             } else {
                 return 'Winner is White';
             }
+        },
+    },
+    methods: {
+        restart() {
+            this.$store.commit('restart');
         },
     },
 };
