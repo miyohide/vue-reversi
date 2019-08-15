@@ -76,4 +76,10 @@ describe('components::Dashboard', () => {
             expect(restartMock).toBeCalled();
         });
     });
+
+    describe('pass buttons', () => {
+        it('石を置く場所がない場合はpass buttonが表示されること', () => {
+            expect(wrapper.contains('button.pass')).toBeTruthy();
+        });
+    });
 });
