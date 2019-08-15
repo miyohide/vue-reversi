@@ -1,6 +1,7 @@
 import {
     WHITE,
-    BLACK
+    BLACK,
+    INITIAL_BOARD
 } from '@/store/commons';
 
 import { createStore } from '@/store';
@@ -37,6 +38,14 @@ describe('store::mutations', () => {
             store.commit('changePiece', { position: 28, color: BLACK});
             // TODO なんで[4, 2]の場所が変わるんだろう...
             expect(store.state.board[20]).toEqual(BLACK);
+        });
+    });
+
+    describe('restart', () => {
+        it('ゲームがリスタートすること', () => {
+            store.commit('changePiece', { position: 0, color: BLACK });
+            store.commit('restart');
+            expect(store.state.board).toEqual(INITIAL_BOARD);
         });
     });
 });
