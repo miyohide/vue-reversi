@@ -5,9 +5,15 @@ import Dashboard from '@/components/Dashboard.vue';
 describe('components::Dashboard', () => {
     let wrapper;
     let store;
+    let restartMock;
 
     beforeEach(() => {
-        store = createStore();
+        restartMock = jest.fn();
+        store = createStore({
+            mutations: {
+                restart: restartMock,
+            },
+        });
         wrapper = mount(Dashboard, {
             store,
         });
@@ -60,6 +66,14 @@ describe('components::Dashboard', () => {
             ];
             store.state.board = boardWithBlackWin;
             expect(wrapper.find('.winner').text()).toEqual('Winner is Black');
+        });
+    });
+
+    describe('restart button', () => {
+        it('Restartボタンを押すとrestart mutationがcommitされること', () => {
+            const restartButton = wrapper.find('button.restart');
+            restartButton.trigger('click');
+            expect(restartMock).toBeCalled();
         });
     });
 });
