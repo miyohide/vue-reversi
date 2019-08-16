@@ -104,5 +104,20 @@ describe('store::commons', () => {
             expect(reversibleCellsByDirection(board, [0, 3], [1, 0], WHITE)).toEqual([[1, 3]]);
             expect(reversibleCellsByDirection(board, [0, 3], [0, -1], WHITE)).toEqual([]);
         });
+
+        it('bug 002', () => {
+            const board = [
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'B', 'W', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'B', 'B', 'B',
+            ];
+            expect(reversibleCellsByDirection(board, [4, 7], [0, -1], WHITE)).toEqual([[4, 6]]);
+            expect(reversibleCellsByDirection(board, [4, 7], [1, 0], WHITE)).toEqual([]);
+        });
     });
 });
