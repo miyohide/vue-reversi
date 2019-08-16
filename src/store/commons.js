@@ -74,7 +74,7 @@ export const reversibleCellsByDirection = (board, [x, y], [xDir, yDir], player) 
   let playerFound = false;
   let blankFound = false;
   let currentCell;
-  while (currentX > 0 && currentX < WIDTH && currentY > 0 && currentY < HEIGHT && !playerFound && !blankFound) {
+  while (currentX >= 0 && currentX < WIDTH && currentY >= 0 && currentY < HEIGHT && !playerFound && !blankFound) {
     currentCell = board[cellIndex(currentX, currentY)];
     playerFound = currentCell === player;
     blankFound = currentCell === BLANK;
