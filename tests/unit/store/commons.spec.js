@@ -89,5 +89,20 @@ describe('store::commons', () => {
                 [[0, 1],]
             );
         });
+
+        it('bug 001', () => {
+            const board = [
+                'B', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'B', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'B', 'W', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'B', 'W', 'W', 'W', 'E', 'E', 'E',
+                'E', 'E', 'B', 'B', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            ];
+            expect(reversibleCellsByDirection(board, [0, 3], [1, 0], WHITE)).toEqual([[1, 3]]);
+            expect(reversibleCellsByDirection(board, [0, 3], [0, -1], WHITE)).toEqual([]);
+        });
     });
 });
