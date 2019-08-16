@@ -87,5 +87,20 @@ describe('components::Dashboard', () => {
         it('石を置く場所がない場合はpass buttonが表示されること', () => {
             expect(wrapper.contains('button.pass')).toBeTruthy();
         });
+
+        it('石を置く場所がある場合はpass buttonを表示しないこと', () => {
+            playableCellsMock = jest.fn();
+            playableCellsMock.mockReturnValue([1, 2]);
+
+            store = createStore({
+                getters: {
+                    playableCells: playableCellsMock,
+                },
+            });
+            wrapper = mount(Dashboard, {
+                store,
+            });
+            expect(wrapper.contains('button.pass')).toBeFalsy();
+        });
     });
 });
