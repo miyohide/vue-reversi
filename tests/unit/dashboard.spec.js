@@ -103,4 +103,24 @@ describe('components::Dashboard', () => {
             expect(wrapper.contains('button.pass')).toBeFalsy();
         });
     });
+
+    it('pass buttonが押されたときにはchangePlayerがコミットされること', () => {
+        let passMock = jest.fn();
+        playableCellsMock = jest.fn();
+        playableCellsMock.mockReturnValue([]);
+        store = createStore({
+            getters: {
+                playableCells: playableCellsMock,
+            },
+            mutations: {
+                changePlayer: passMock,
+            },
+        });
+        wrapper = mount(Dashboard, {
+            store,
+        });
+        const passButton = wrapper.find('button.pass');
+        passButton.trigger('click');
+        expect(passMock).toBeCalled();
+    });
 });
