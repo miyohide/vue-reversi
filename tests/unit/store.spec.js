@@ -1,6 +1,5 @@
 import { state } from '@/store';
 import { BLACK } from '@/store/commons';
-import getters from '@/store/getters';
 
 describe('store', () => {
     describe('state', () => {
