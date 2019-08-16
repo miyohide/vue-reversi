@@ -58,19 +58,35 @@ describe('store::commons', () => {
     });
 
     describe('reversibleCellsByDirection', () => {
-        const board = [
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-            'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
-            'E', 'E', 'W', 'W', 'B', 'E', 'E', 'E',
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-            'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
-        ];
         it('与えられた状況においてひっくり返る座標のリストが返ること', () => {
+            const board = [
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'B', 'W', 'E', 'E', 'E',
+                'E', 'E', 'W', 'W', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            ];
             expect(reversibleCellsByDirection(board, [1, 4], [1, 0], BLACK)).toEqual(
                 [[2, 4], [3, 4],]
+            );
+        });
+
+        it('境界試験', () => {
+            const board = [
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'W', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'B', 'W', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'B', 'W', 'W', 'W', 'E', 'E', 'E',
+                'E', 'E', 'B', 'B', 'B', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+                'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E',
+            ];
+            expect(reversibleCellsByDirection(board, [0, 0], [0, 1], BLACK)).toEqual(
+                [[0, 1],]
             );
         });
     });
