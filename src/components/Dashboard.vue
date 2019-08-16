@@ -7,7 +7,7 @@
             </div>
             <button @click="restart" class="restart">Restart</button>
             <div v-if="hasNotPlayableCells">
-                <button class="pass">Pass turn</button>
+                <button @click="pass" class="pass">Pass turn</button>
             </div>
             <div class="scores-container">
                 <div>
@@ -60,6 +60,9 @@ export default {
         restart() {
             this.$store.commit('restart');
         },
+        pass() {
+            this.$store.commit('changePlayer');
+        }
     },
 };
 </script>
