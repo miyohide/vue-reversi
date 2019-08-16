@@ -90,5 +90,10 @@ export const reversibleCellsByDirection = (board, [x, y], [xDir, yDir], player) 
   if (blankFound) {
     result = [];
   }
+  if (!playerFound) {
+    if (currentX < 0 || currentY < 0) {
+      result = [];
+    }
+  }
   return result;
 }
