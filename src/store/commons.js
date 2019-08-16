@@ -91,7 +91,7 @@ export const reversibleCellsByDirection = (board, [x, y], [xDir, yDir], player) 
     result = [];
   }
   if (!playerFound) {
-    if (currentX < 0 || currentY < 0) {
+    if (currentX < 0 || currentY < 0 || currentX >= WIDTH || currentY >= HEIGHT) {
       result = [];
     }
   }
