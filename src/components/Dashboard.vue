@@ -66,3 +66,48 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.dashboard {
+  width: 50vw;
+  margin: auto;
+  min-width: 300px;
+  max-width: 700px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 0;
+}
+@keyframes blink {
+  0% { background: #fff; }
+  100% { background: #C4E79A; }
+}
+h3 {
+  padding: 6px 5px 3px;
+  border: 1px solid #94C160;
+  border-radius: 3px;
+}
+.scores-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.currentPlayer {
+  font-weight: bold;
+  animation: blink 1s linear infinite;
+}
+.score-value {
+  font-size: 1.5em;
+}
+@keyframes blinkText {
+  0% { color: #000; }
+  100% { color: #f00; }
+}
+.center {
+  padding-top: 30px;
+}
+.winner {
+  font-weight: bold;
+  animation: blinkText 1s linear infinite;
+}
+</style>
