@@ -1,3 +1,7 @@
+/*
+gettersが果たす役割は以下を参照
+https://vuex.vuejs.org/ja/guide/getters.html
+*/
 import {
     BLACK,
     WHITE,

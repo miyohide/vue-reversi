@@ -17,6 +17,11 @@
 </template>
 
 <script>
+/* mapState
+https://vuex.vuejs.org/ja/guide/state.html#mapstate-%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC
+   mapGetters
+https://vuex.vuejs.org/ja/guide/getters.html#mapgetters-%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC
+*/
 import { mapState, mapGetters } from 'vuex';
 import Piece from '@/components/Piece.vue';
 
