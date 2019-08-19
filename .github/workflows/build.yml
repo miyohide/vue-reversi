@@ -1,9 +1,10 @@
-name: Hello World!
+name: Test Vuejs app
 on: push
 
 jobs:
   build:
-    name: Greeting
+    name: Test on node
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!"
+      - run: |
+          yarn install
